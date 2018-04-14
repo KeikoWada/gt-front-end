@@ -10,6 +10,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body>
       <header class="list-header hidden">
@@ -100,13 +101,16 @@
                 <!-- end of show button -->
                 <!-- clear button -->
                 <button type="button" id="clear-button" class="btn btn-default">Clear</button>
+                <section id="forms"></section>
+                <section id="place-content"></section>
                 <!-- end of show button -->
               </div>
               <div id="content"></div>
             </div>
             <div class="col-xs-6 column-right">
-              <section id="forms"></section>
-              <section id="place-content"></section>
+              <!-- <section id="forms"></section> -->
+              <!-- <section id="place-content"></section> -->
+              <!-- <section id="map"></section> -->
               <p id="delete-feedback"></p>
             </div>
           </div>
@@ -114,5 +118,7 @@
         </div>
       </section>
       <!-- End Second Page -->
+      <button type="button" id="test-button" class="btn btn-default">test</button>
+      <div id="map"></div>
     </body>
 </html>
