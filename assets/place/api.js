@@ -2,11 +2,11 @@
 
 const config = require('../scripts/config')
 const store = require('../scripts/store')
-// const handlebars = require('../templates/list.handlebars')
+// const handlebars = require('../templates/place.handlebars')
 
-const createList = function (data) {
+const createPlace = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/lists',
+    url: config.apiUrl + '/places',
     method: 'POST',
     headers: {
       contentType: 'application/json',
@@ -18,7 +18,7 @@ const createList = function (data) {
 
 const update = function (data, id) {
   return $.ajax({
-    url: config.apiUrl + '/lists/' + id,
+    url: config.apiUrl + '/places/' + id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -30,7 +30,7 @@ const update = function (data, id) {
 
 const showAll = function () {
   return $.ajax({
-    url: config.apiUrl + '/lists',
+    url: config.apiUrl + '/places',
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -41,7 +41,7 @@ const showAll = function () {
 //
 const showOne = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/lists/' + id,
+    url: config.apiUrl + '/places/' + id,
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -50,10 +50,10 @@ const showOne = function (id) {
   })
 }
 //
-const deleteList = function (id) {
+const deletePlace = function (id) {
 
   return $.ajax({
-    url: config.apiUrl + '/lists/' + id,
+    url: config.apiUrl + '/places/' + id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
@@ -63,9 +63,9 @@ const deleteList = function (id) {
 }
 
 module.exports = {
-  createList,
+  createPlace,
   update,
   showAll,
   showOne,
-  deleteList
+  deletePlace
 }

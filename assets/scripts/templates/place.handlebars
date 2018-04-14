@@ -1,0 +1,33 @@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title" data-id={{place.id}}>{{place.place_name}}</h3>
+    </div>
+    <div class="panel-body">
+      <div>
+          Name: {{place.name}}
+      </div>
+      <div>
+          Category: {{place.category}}
+      </div>
+      <div>
+          Address: {{place.address}}
+      </div>
+      <div>
+          Description: {{place.description}}
+      </div>
+      <div>
+        {{#if place.name}}
+          Name: {{place.name}}
+        {{else}}
+          Nothing here yet.
+        {{/if}}
+      </div>
+      <button class="place-delete btn btn-danger entry-delete-button" class="entry-delete-button" data-id={{place.id}}>
+        Delete
+      </button>
+      <button type="button" class="place-update btn btn-info entry-update-button" data-id={{place.id}}>
+      Update
+      </button>
+
+    </div>
+  </div>

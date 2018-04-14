@@ -10,11 +10,11 @@ const onShowCreate = function (event) {
   ui.onShowCreateForm()
 }
 
-const onCreateList = function (event) {
+const onCreatePlace = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.data = data
-  api.createList(data)
+  api.createPlace(data)
     .then(ui.onCreateSuccess)
     .then(onShowAll)
     .catch(ui.onCreateFailure)
@@ -56,14 +56,14 @@ const onClear = (event) => {
   $('#show-all').prop('disabled', false)
   $('#content').empty()
   $('#delete-feedback').text('')
-  $('#list-content').empty()
+  $('#place-content').empty()
   $('#clear-button').addClass('hidden')
 }
 
-const onDeleteList = (event) => {
+const onDeletePlace = (event) => {
   event.preventDefault()
   const id = event.target.dataset.id
-  api.deleteList(id)
+  api.deletePlace(id)
     .then(ui.onDeleteSuccess)
     .then($('#content').empty())
     .then(onShowAll)
@@ -71,13 +71,13 @@ const onDeleteList = (event) => {
 }
 
 const addHandlers = () => {
-  $('#list-content').on('submit', '#create-form', onCreateList)
+  $('#place-content').on('submit', '#create-form', onCreatePlace)
   $('#show-all').on('click', onShowAll)
   $('#content').on('click', '#see-more-button', onShowOne)
-  $('#list-content').on('click', '.list-update', onShowUpdate)
-  $('#list-content').on('submit', '#update-form', onUpdate)
+  $('#place-content').on('click', '.place-update', onShowUpdate)
+  $('#place-content').on('submit', '#update-form', onUpdate)
   $('#clear-button').on('click', onClear)
-  $('#list-content').on('click', '.list-delete', onDeleteList)
+  $('#place-content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
 }
 

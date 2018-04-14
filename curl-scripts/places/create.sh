@@ -1,15 +1,16 @@
 #!/bin/bash
 
-curl "http://localhost:4741/lists" \
+curl "http://localhost:4741/places" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "list": {
-      "place_name": "'"${PLACE_NAME}"'",
+    "place": {
+      "name": "'"${NAME}"'",
+      "category": "'"${CATEGORY}"'",
       "address": "'"${ADDRESS}"'",
-      "discription": "'"${DISCRIPTION}"'"
+      "description": "'"${DESCRIPTION}"'"
     }
   }'
 

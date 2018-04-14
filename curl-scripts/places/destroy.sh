@@ -1,4 +1,4 @@
-curl "http://localhost:4741/lists/${ID}" \
+curl "http://localhost:4741/places/${ID}" \
   --include \
   --request DELETE \
   --header "Content-Type: application/json" \

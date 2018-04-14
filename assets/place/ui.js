@@ -1,18 +1,18 @@
 'use strict'
 
 const store = require('../scripts/store')
-// const listEvents = require('./events')
-const showListsTemplate = require('../scripts/templates/all-lists.handlebars')
-const showListTemplate = require('../scripts/templates/list.handlebars')
+// const placeEvents = require('./events')
+const showPlacesTemplate = require('../scripts/templates/all-places.handlebars')
+const showPlaceTemplate = require('../scripts/templates/place.handlebars')
 const showCreateTemplate = require('../scripts/templates/create-form.handlebars')
 const showUpdateTemplate = require('../scripts/templates/update-form.handlebars')
 
 const onShowCreateForm = () => {
   const showCreateHtml = showCreateTemplate()
   $('#clear-button').removeClass('hidden')
-  $('#list-content').empty()
+  $('#place-content').empty()
   $('#delete-feedback').text('')
-  $('#list-content').append(showCreateHtml)
+  $('#place-content').append(showCreateHtml)
 }
 
 const onCreateSuccess = function (data) {
@@ -35,13 +35,13 @@ const onCreateFailure = function () {
 const onShowAllSuccess = function (data) {
   store.data = data
   $('#clear-button').removeClass('hidden')
-  if (data.lists.length === 0) {
+  if (data.places.length === 0) {
     $('#content').removeClass('text-success')
     $('#content').addClass('text-danger')
-    $('#content').text('Add to your Bucket List!')
+    $('#content').text('no place yet')
   } else {
-    const showListsHtml = showListsTemplate({ lists: data.lists })
-    $('#content').append(showListsHtml)
+    const showPlacesHtml = showPlacesTemplate({ places: data.places })
+    $('#content').append(showPlacesHtml)
   }
 }
 
@@ -52,10 +52,10 @@ const onShowAllFailure = function () {
 }
 
 const onShowOneSuccess = function (data) {
-  const showListHtml = showListTemplate({ list: data.list })
-  $('#list-content').empty()
+  const showPlaceHtml = showPlaceTemplate({ place: data.place })
+  $('#place-content').empty()
   $('#delete-feedback').text('')
-  $('#list-content').append(showListHtml)
+  $('#place-content').append(showPlaceHtml)
 }
 
 const onShowOneFailure = function () {
@@ -66,14 +66,14 @@ const onShowOneFailure = function () {
 
 const onShowUpdateForm = () => {
   const showUpdateHtml = showUpdateTemplate()
-  $('#list-content').empty()
-  $('#list-content').append(showUpdateHtml)
+  $('#place-content').empty()
+  $('#place-content').append(showUpdateHtml)
 }
 
 const onUpdateSuccess = function () {
   $('#update-form-feedback').removeClass('text-danger')
   $('#update-form-feedback').addClass('text-success')
-  $('#update-form-feedback').text('Bucket list udpated successfully!')
+  $('#update-form-feedback').text('Bucket place udpated successfully!')
   $('form').trigger('reset')
   $('#content').empty()
   $('#show-all').prop('disabled', false)
@@ -89,14 +89,14 @@ const onUpdateFailure = function () {
 const onDeleteSuccess = () => {
   $('#delete-feedback').removeClass('text-danger')
   $('#delete-feedback').addClass('text-success')
-  $('#list-content').empty()
+  $('#place-content').empty()
   $('#delete-feedback').text('Deleted successfully!')
 }
 
 const onDeleteFailure = () => {
   $('#delete-feedback').addClass('text-danger')
   $('#delete-feedback').removeClass('text-success')
-  $('#list-content').empty()
+  $('#place-content').empty()
   $('#delete-feedback').text('Delete was unsuccessful!')
 }
 
