@@ -5,6 +5,10 @@ const GoogleMapsLoader = require('google-maps')
 GoogleMapsLoader.KEY = 'AIzaSyDYNUvtBwJqZK-viWIsQx5hlEMr-yUGJ2g'
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places']
 
+const googleMapsClient = require('@google/maps').createClient({
+  key: 'AIzaSyDVQsDmrGkPLYBFZrvfKpOD-IsW_Bv5ZdI '
+})
+
 const initialize = function () {
   $('#map').text('here')
   $('#map').show()
@@ -20,9 +24,6 @@ const initialize = function () {
   })
 }
 // ****************************************************************************
-const googleMapsClient = require('@google/maps').createClient({
-  key: 'AIzaSyDVQsDmrGkPLYBFZrvfKpOD-IsW_Bv5ZdI '
-})
 
 const showMapTemplate = require('../scripts/templates/map.handlebars')
 
@@ -40,13 +41,6 @@ const map = function () {
       console.log(response.json.results)
     }
   })
-//
-//   const mapOptions = {
-//     zoom: 13,
-//     center: {lat: 42.3601, lng: -71.0589}
-//   }
-//   const map = new google.maps.Map(document.getElementById('map'),
-//     mapOptions)
 }
 
 module.exports = {
