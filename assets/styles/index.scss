@@ -20,3 +20,14 @@ body {
   height: 85vh;
   width: 100vh;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+}

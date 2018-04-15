@@ -1,18 +1,17 @@
 'use strict'
 
-const mapEvent = require('./event')
+const store = require('../scripts/store')
+const showMapHtmlTemplate = require('../scripts/templates/map.handlebars')
 
-const initialize = function () {
-  $('#map').text('here')
-  $('#map').show()
+const onShowMap = function (data) {
+  store.data = data
+  const showMapHtml = showMapHtmlTemplate({ map: data.map })
+  $('#handlebars').append(showMapHtml)
+  console.log(data)
+  console.log(data[0].address_components[2].long_name)
+  console.log(data[0].formatted_address)
+}
 
-  GoogleMapsLoader.load(function (google) {
-    const mapOptions = {
-      zoom: 13,
-      center: {lat: 42.3601, lng: -71.0589},
-      map: map
-    }
-    const map = new google.maps.Map(document.getElementById('map'),
-      mapOptions)
-  })
+module.exports = {
+  onShowMap
 }
