@@ -13,9 +13,6 @@ const mapEvents = require('../map/event')
 $(() => {
   authEvents.addHandlers()
   placeEvents.addHandlers()
-  $('#test-button').on('click', function () {
-    mapEvents.initialize()
-  })
   $('#handlebars-button').on('click', function () {
     mapEvents.maps()
     // test.initMap()

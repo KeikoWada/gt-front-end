@@ -5,6 +5,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
 const signInTemplate = require('../scripts/templates/sign-in.handlebars')
 const signUpTemplate = require('../scripts/templates/sign-up.handlebars')
+const mapEvents = require('../map/event')
 
 const showSignUp = function () {
   $('#first-page-forms').html('')
@@ -37,6 +38,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(mapEvents.initialize)
     .catch(ui.signInFailure)
 }
 

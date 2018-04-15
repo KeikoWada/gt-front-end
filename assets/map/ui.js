@@ -10,7 +10,7 @@ const onShowMap = function (data) {
   $('#handlebars').append(showMapHtml)
   console.log(data[0].address_components[2].long_name)
   console.log(data[0].formatted_address)
-  $('#address1').html(data[0].formatted_address)
+  // $('#address1').html(data[0].formatted_address)
 }
 
 module.exports = {

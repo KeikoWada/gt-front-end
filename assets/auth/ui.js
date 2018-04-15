@@ -34,7 +34,7 @@ const signOutSuccess = () => {
   $('#first-page, #clear-button').removeClass('hidden')
   $('#second-page, .place-header').addClass('hidden')
   $('#content').empty()
-  $('#place-content').empty()
+  $('#left-content').empty()
   $('#delete-feedback').empty()
   $('#sign-in-feedback').text('')
   $('#show-all').prop('disabled', false)
@@ -50,6 +50,11 @@ const changePasswordSuccess = (data) => {
   $('#change-password-feedback').addClass('text-success')
   $('#change-password-feedback').text('Updated successfully!')
   $('form').trigger('reset')
+//   function myFunction () {
+//     const x = document.getElementById('change-password-success')
+//     x.className = 'show'
+//     setTimeout(function () { x.className = x.className.replace('show', '') }, 3000)
+// }
 }
 
 const changePasswordFailure = () => {

@@ -13,7 +13,7 @@
 
     </head>
     <body>
-      <header class="list-header hidden">
+      <header class="place-header hidden">
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,9 +47,9 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <p id="change-password-feedback"></p>
-                        </div>
+                        <!-- <div class="col-sm-offset-2 col-sm-10"> -->
+                          <!-- <p id="change-password-feedback"></p> -->
+                        <!-- </div> -->
                       </div>
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
@@ -101,24 +101,33 @@
                 <!-- end of show button -->
                 <!-- clear button -->
                 <button type="button" id="clear-button" class="btn btn-default">Clear</button>
+                <section id="left-content"></section>
                 <!-- <section id="forms"></section>
                 <section id="place-content"></section> -->
                 <!-- end of show button -->
               </div>
               <div id="content"></div>
+              <!-- <div id="change-password-success">Successfully changed password</div>
+              <div id="change-password-fail">Oooops error changing password</div>
+              <div id="create-success">Successfully Created</div>
+              <div id="create-fail">Oooops error Creating</div>
+              <div id="update-success">Successfully Updated</div>
+              <div id="update-fail">Oooops error Updating</div>
+              <div id="delete-success">Successfully Deleted</div>
+              <div id="delete-fail">Oooops error Deleting</div> -->
+
             </div>
             <div class="col-xs-6 column-right">
-              <section id="forms"></section>
-              <section id="place-content"></section>
+              <!-- <section id="forms"></section> -->
+              <!-- <section id="place-content"></section> -->
               <div id="map"></div>
-              <p id="delete-feedback"></p>
+              <!-- <p id="delete-feedback"></p> -->
             </div>
           </div>
           <!-- Content and Forms row -->
         </div>
       </section>
       <!-- End Second Page -->
-      <button type="button" id="test-button" class="btn btn-default">map</button>
       <button type="button" id="handlebars-button" class="btn btn-default">handlebars</button>
       <!-- <div id="map"></div> -->
       <div id="handlebars"></div>

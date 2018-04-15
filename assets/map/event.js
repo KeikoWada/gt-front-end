@@ -13,6 +13,7 @@ const googleMapsClient = require('@google/maps').createClient({
 let markers = []
 let route = []
 
+// initialize the map point to boston
 const initialize = function () {
   console.log('test')
   $('#map').show()
@@ -26,10 +27,11 @@ const initialize = function () {
     }
     const map = new google.maps.Map(document.getElementById('map'),
       mapOptions)
-
+    // listner function to add Point
     google.maps.event.addListener(map, 'click', function (event) {
       addPoint(event.latLng)
     })
+    // remove the Point when it's double clicked
     function removePoint (marker) {
       console.log('hi')
       for (let i = 0; i < markers.length; i++) {
@@ -53,13 +55,13 @@ const initialize = function () {
     //   })
     // }
 
-// ***************
+    // ***************
 const geocoder = new google.maps.Geocoder
 const infowindow = new google.maps.InfoWindow
 const geocodeLatLng = function (geocoder, map, infowindow) {
       // const input = document.getElementById('latlng').value
       // const latlngStr = input.split(',', 2)
-      console.log(latling)
+      console.log()
       const latlng = {lat: 42.3601, lng: -71.0589}
       geocoder.geocode({'location': latlng}, function (results, status) {
         if (status === 'OK') {
@@ -79,7 +81,7 @@ const geocodeLatLng = function (geocoder, map, infowindow) {
         }
       })
     }
-    // ***********
+    // *********** add marker on map & invoke the geocodeLatLng function
     function addPoint (latlng) {
       console.log(latlng)
       const marker = new google.maps.Marker({
@@ -101,11 +103,9 @@ const geocodeLatLng = function (geocoder, map, infowindow) {
       })
     }
   })
-  // function mapss (marker) {
-  //   console.log(marker)
-  // }
 }
 // ****************************************************************************
+// rendering the json object from google api
 const maps = function () {
   googleMapsClient.geocode({
     address: '1600 Amphitheatre Parkway, Mountain View, CA'

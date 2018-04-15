@@ -56,7 +56,7 @@ const onClear = (event) => {
   $('#show-all').prop('disabled', false)
   $('#content').empty()
   $('#delete-feedback').text('')
-  $('#place-content').empty()
+  $('#left-content').empty()
   $('#clear-button').addClass('hidden')
 }
 
@@ -71,13 +71,13 @@ const onDeletePlace = (event) => {
 }
 
 const addHandlers = () => {
-  $('#place-content').on('submit', '#create-form', onCreatePlace)
+  $('#left-content').on('submit', '#create-form', onCreatePlace)
   $('#show-all').on('click', onShowAll)
   $('#content').on('click', '#see-more-button', onShowOne)
-  $('#place-content').on('click', '.place-update', onShowUpdate)
-  $('#place-content').on('submit', '#update-form', onUpdate)
+  $('#left-content').on('click', '.place-update', onShowUpdate)
+  $('#left-content').on('submit', '#update-form', onUpdate)
   $('#clear-button').on('click', onClear)
-  $('#place-content').on('click', '.place-delete', onDeletePlace)
+  $('#left-content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
 }
 
