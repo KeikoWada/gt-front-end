@@ -3,7 +3,7 @@
 const authEvents = require('../auth/events')
 const placeEvents = require('../place/events')
 const mapEvents = require('../map/event')
-const test = require('../map/test')
+// const test = require('../map/test')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -17,8 +17,8 @@ $(() => {
     mapEvents.initialize()
   })
   $('#handlebars-button').on('click', function () {
-    // mapEvents.maps()
-    test.initMap()
+    mapEvents.maps()
+    // test.initMap()
   })
   $('#address').on('click', mapEvents.maps)
 })

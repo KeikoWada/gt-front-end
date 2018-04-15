@@ -40,45 +40,45 @@ const initialize = function () {
         }
       }
     }
-    const maps = function (latling) {
+    // const maps = function (latling) {
+    //   console.log(latling)
+    // const input = document.getElementById('address').value
+    //   googleMapsClient.geocode({
+    //     Address: '27 branch st. quincy, ma'
+    //   }, function (err, response) {
+    //     if (!err) {
+    //       console.log(response.json.results)
+    //       ui.onShowMap(response.json.results)
+    //     }
+    //   })
+    // }
+
+// ***************
+const geocoder = new google.maps.Geocoder
+const infowindow = new google.maps.InfoWindow
+const geocodeLatLng = function (geocoder, map, infowindow) {
+      // const input = document.getElementById('latlng').value
+      // const latlngStr = input.split(',', 2)
       console.log(latling)
-    const input = document.getElementById('address').value
-      googleMapsClient.geocode({
-        Address: address
-      }, function (err, response) {
-        if (!err) {
-          console.log(response.json.results)
-          ui.onShowMap(response.json.results)
+      const latlng = {lat: 42.3601, lng: -71.0589}
+      geocoder.geocode({'location': latlng}, function (results, status) {
+        if (status === 'OK') {
+          if (results[0]) {
+            map.setZoom(11)
+            const marker = new google.maps.Marker({
+              position: latlng,
+              map: map
+            })
+            infowindow.setContent(results[0].formatted_address)
+            infowindow.open(map, marker)
+          } else {
+            window.alert('No results found')
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status)
         }
       })
     }
-
-// ***************
-// const geocoder = new google.maps.Geocoder
-// const infowindow = new google.maps.InfoWindow
-// const geocodeLatLng = function (geocoder, map, infowindow) {
-//       // const input = document.getElementById('latlng').value
-//       // const latlngStr = input.split(',', 2)
-//       console.log(latling)
-//       const latlng = {lat: 42.3601, lng: -71.0589}
-//       geocoder.geocode({'location': latlng}, function (results, status) {
-//         if (status === 'OK') {
-//           if (results[0]) {
-//             map.setZoom(11)
-//             const marker = new google.maps.Marker({
-//               position: latlng,
-//               map: map
-//             })
-//             infowindow.setContent(results[0].formatted_address)
-//             infowindow.open(map, marker)
-//           } else {
-//             window.alert('No results found')
-//           }
-//         } else {
-//           window.alert('Geocoder failed due to: ' + status)
-//         }
-//       })
-//     }
     // ***********
     function addPoint (latlng) {
       console.log(latlng)
@@ -95,8 +95,8 @@ const initialize = function () {
       // console.log([x, y])
       google.maps.event.addListener(marker, 'click', function (event) {
         removePoint(marker)
-        maps(x, y)
-        // geocodeLatLng(geocoder, map, infowindow)
+        // maps(x, y)
+        geocodeLatLng(geocoder, map, infowindow)
         // console.log(x, y)
       })
     }
@@ -106,22 +106,9 @@ const initialize = function () {
   // }
 }
 // ****************************************************************************
-// const maps = function () {
-//   googleMapsClient.geocode({
-//     address: '1600 Amphitheatre Parkway, Mountain View, CA'
-//   }, function (err, response) {
-//     if (!err) {
-//       console.log(response.json.results)
-//       ui.onShowMap(response.json.results)
-//     }
-//   })
-// }
-
-const maps = function (address) {
-  console.log(address)
-  // const input = document.getElementById('address').value
+const maps = function () {
   googleMapsClient.geocode({
-    Address: address
+    address: '1600 Amphitheatre Parkway, Mountain View, CA'
   }, function (err, response) {
     if (!err) {
       console.log(response.json.results)
@@ -129,6 +116,19 @@ const maps = function (address) {
     }
   })
 }
+
+// const maps = function (address) {
+//   console.log(address)
+//   // const input = document.getElementById('address').value
+//   googleMapsClient.geocode({
+//     Address: address
+//   }, function (err, response) {
+//     if (!err) {
+//       console.log(response.json.results)
+//       ui.onShowMap(response.json.results)
+//     }
+//   })
+// }
 module.exports = {
   initialize,
   maps

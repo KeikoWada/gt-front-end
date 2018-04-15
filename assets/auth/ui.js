@@ -19,7 +19,7 @@ const signUpFailure = () => {
 const signInSuccess = (data) => {
   store.user = data.user
   $('#first-page, #clear-button').addClass('hidden')
-  $('#second-page, .list-header').removeClass('hidden')
+  $('#second-page, .place-header').removeClass('hidden')
   $('form').trigger('reset')
 }
 
@@ -32,9 +32,9 @@ const signInFailure = () => {
 
 const signOutSuccess = () => {
   $('#first-page, #clear-button').removeClass('hidden')
-  $('#second-page, .list-header').addClass('hidden')
+  $('#second-page, .place-header').addClass('hidden')
   $('#content').empty()
-  $('#list-content').empty()
+  $('#place-content').empty()
   $('#delete-feedback').empty()
   $('#sign-in-feedback').text('')
   $('#show-all').prop('disabled', false)
