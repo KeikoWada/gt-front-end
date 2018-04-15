@@ -62,7 +62,7 @@ const geocodeLatLng = function (geocoder, map, infowindow) {
       // const input = document.getElementById('latlng').value
       // const latlngStr = input.split(',', 2)
       console.log()
-      const latlng = {lat: 42.3601, lng: -71.0589}
+      const latlng = {lat: 42.4601, lng: -71.1589}
       geocoder.geocode({'location': latlng}, function (results, status) {
         if (status === 'OK') {
           if (results[0]) {
