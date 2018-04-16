@@ -65,10 +65,35 @@ const onShowOneFailure = function () {
 }
 
 const onShowUpdateForm = () => {
-  const showUpdateHtml = showUpdateTemplate()
   $('#left-content').empty()
+  const showUpdateHtml = showUpdateTemplate()
   $('#left-content').append(showUpdateHtml)
 }
+
+const getOne = (data) => {
+  store.data = data
+  console.log(data)
+  console.log(data.place.name)
+  $('.update-id').val(data.place.id)
+  $('.update-name').val(data.place.name)
+  $('.update-category').val(data.place.category)
+  $('.update-address').val(data.place.address)
+  $('.update-description').val(data.place.description)
+}
+
+// const onUpdateSuccess = function (data) {
+//   store.data = data
+//   const showlistsHtml = showUpdateTemplate({ place: data.place })
+//   $('#content').append(showlistsHtml)
+//   $('input').val('')
+//
+//   // $('#updatesuccessModal').modal('show')
+//   // $('#updatemyModal').modal('hide')
+//   // $('#thisupdatemyModal').modal('hide')
+//   // $('#your-modal-id').modal('hide')
+//   // $('body').removeClass('modal-open')
+//   // $('.modal-backdrop').remove()
+// }
 
 const onUpdateSuccess = function () {
   $('#update-form-feedback').removeClass('text-danger')
@@ -109,6 +134,7 @@ module.exports = {
   onShowOneSuccess,
   onShowOneFailure,
   onShowUpdateForm,
+  getOne,
   onUpdateSuccess,
   onUpdateFailure,
   onDeleteSuccess,

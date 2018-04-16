@@ -36,7 +36,7 @@ const initialize = function () {
       console.log('hi')
       for (let i = 0; i < markers.length; i++) {
         if (markers[i] === marker) {
-          markers[i].setMap(null)
+          markers.setMap(null)
           markers.splice(i, 1)
           route.splice(i, 1)
         }
@@ -66,7 +66,7 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
       geocoder.geocode({'location': latlng}, function (results, status) {
         if (status === 'OK') {
           if (results[0]) {
-            map.setZoom(8)
+            map.setZoom(15)
             const marker = new google.maps.Marker({
               position: latlng,
               map: map
@@ -131,7 +131,20 @@ const maps = function (data) {
 //   })
 // }
 
+// delete markers
+// Deletes all markers in the array by removing references to them.
+// function setMapOnAll (map) {
+//   for (let i = 0; i < markers.length; i++) {
+//     markers[i].setMap(map)
+//     deleteMarkers()
+//   }
+// }
+// function deleteMarkers () {
+//   setMapOnAll(null)
+//   markers = []
+// }
 module.exports = {
   initialize,
   maps
+  // setMapOnAll
 }

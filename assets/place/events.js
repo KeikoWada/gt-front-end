@@ -4,6 +4,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../scripts/store')
+const mapEvent = require('../map/event')
 
 const onShowCreate = function (event) {
   event.preventDefault()
@@ -34,12 +35,24 @@ const onShowOne = function (event) {
     .then(ui.onShowOneSuccess)
     .catch(ui.onShowOneFailure)
 }
+
 let id
 const onShowUpdate = (event) => {
   event.preventDefault()
   id = $('.panel-title').attr('data-id')
   $('#update-form-id').val(id)
   ui.onShowUpdateForm()
+  onOneLoad(event)
+}
+
+const onOneLoad = (event) => {
+  event.preventDefault()
+
+  // grab the `data-id` attribute
+  const id = event.target.dataset.id
+  api.showOne(id)
+    .then(ui.getOne)
+    // .then(() => onShowUpdate(event))
 }
 
 const onUpdate = (event) => {
@@ -58,6 +71,7 @@ const onClear = (event) => {
   $('#delete-feedback').text('')
   $('#left-content').empty()
   $('#clear-button').addClass('hidden')
+  // mapEvent.setMapOnAll()
 }
 
 const onDeletePlace = (event) => {
@@ -74,6 +88,7 @@ const addHandlers = () => {
   $('#left-content').on('submit', '#create-form', onCreatePlace)
   $('#show-all').on('click', onShowAll)
   $('#content').on('click', '#see-more-button', onShowOne)
+  // $('#left-content').on('click', '.place-update', onShowUpdate)
   $('#left-content').on('click', '.place-update', onShowUpdate)
   $('#left-content').on('submit', '#update-form', onUpdate)
   $('#clear-button').on('click', onClear)

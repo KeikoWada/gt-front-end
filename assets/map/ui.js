@@ -12,7 +12,7 @@ const onShowMap = function (data) {
   // console.log(data[0].formatted_address)
   // $('#address1').html(data[0].formatted_address)
   const showMapHtml = showMapHtmlTemplate({map: data})
-  $('#handlebars').append(showMapHtml)
+  $('#left-content').append(showMapHtml)
 }
 
 module.exports = {
