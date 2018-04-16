@@ -58,11 +58,11 @@ const initialize = function () {
     // ***************
 const geocoder = new google.maps.Geocoder
 const infowindow = new google.maps.InfoWindow
-const geocodeLatLng = function (geocoder, map, infowindow) {
+const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
       // const input = document.getElementById('latlng').value
       // const latlngStr = input.split(',', 2)
-      console.log()
-      const latlng = {lat: 42.4601, lng: -71.1589}
+      console.log(x, y)
+      const latlng = {lat: x, lng: y}
       geocoder.geocode({'location': latlng}, function (results, status) {
         if (status === 'OK') {
           if (results[0]) {
@@ -94,12 +94,10 @@ const geocodeLatLng = function (geocoder, map, infowindow) {
       const y = latlng.lng()
       route.push([x, y])
       markers.push(marker)
-      // console.log([x, y])
       google.maps.event.addListener(marker, 'click', function (event) {
         removePoint(marker)
         // maps(x, y)
-        geocodeLatLng(geocoder, map, infowindow)
-        // console.log(x, y)
+        geocodeLatLng(geocoder, map, infowindow, x, y)
       })
     }
   })
@@ -129,6 +127,7 @@ const maps = function () {
 //     }
 //   })
 // }
+
 module.exports = {
   initialize,
   maps

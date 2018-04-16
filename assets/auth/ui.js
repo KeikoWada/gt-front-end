@@ -1,5 +1,6 @@
 'use strict'
 
+const jqueryToastPlugin = require('jquery-toast-plugin')
 const store = require('../scripts/store')
 
 const signUpSuccess = () => {
@@ -46,21 +47,42 @@ const signOutFailure = () => {
 }
 
 const changePasswordSuccess = (data) => {
-  $('#change-password-feedback').removeClass('text-danger')
-  $('#change-password-feedback').addClass('text-success')
-  $('#change-password-feedback').text('Updated successfully!')
+  $.toast({
+    text: 'Changed Password successfully',
+    showHideTransition: 'plain',
+    allowToastClose: true,
+    heading: 'Success!',
+    icon: 'success',
+    hideAfter: 3000,
+    stack: 5,
+    position: 'top-left',
+    textAlign: 'left',
+    loader: true,
+    loaderBg: '#F09C40',
+    bgColor: 'green',
+    textColor: '#eee'
+  })
+  // $('#change-password-feedback').removeClass('text-danger')
+  // $('#change-password-feedback').addClass('text-success')
   $('form').trigger('reset')
-//   function myFunction () {
-//     const x = document.getElementById('change-password-success')
-//     x.className = 'show'
-//     setTimeout(function () { x.className = x.className.replace('show', '') }, 3000)
-// }
 }
 
 const changePasswordFailure = () => {
-  $('#change-password-feedback').addClass('text-danger')
-  $('#change-password-feedback').removeClass('text-success')
-  $('#change-password-feedback').text('Try again!')
+  $.toast({
+    text: 'Error Changing Password',
+    heading: 'Error!',
+    icon: 'error',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
+  // $('#change-password-feedback').addClass('text-danger')
+  // $('#change-password-feedback').removeClass('text-success')
+  // $('#change-password-feedback').text('Try again!')
   $('form').trigger('reset')
 }
 
