@@ -12,9 +12,17 @@ const onShowMap = function (data) {
   // console.log(data[0].formatted_address)
   // $('#address1').html(data[0].formatted_address)
   const showMapHtml = showMapHtmlTemplate({map: data})
-  $('#left-content').append(showMapHtml)
+  $('#left-content').html(showMapHtml)
+}
+
+const onMapAddress = (data) => {
+  store.data = data
+  console.log(data)
+  console.log('data.map is', data.map)
+  $('.create-address').val(data.map)
 }
 
 module.exports = {
-  onShowMap
+  onShowMap,
+  onMapAddress
 }
