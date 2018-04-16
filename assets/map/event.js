@@ -106,12 +106,14 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
 // ****************************************************************************
 // rendering the json object from google api
 const maps = function (data) {
+  console.log(data)
   googleMapsClient.geocode({
     address: 'data'
   }, function (err, response) {
     if (!err) {
       console.log(response.json.results)
-      ui.onShowMap(response.json.results)
+      // ui.onShowMap(response.json.results)
+      ui.onShowMap(data)
     }
   })
 }
