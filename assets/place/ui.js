@@ -74,7 +74,7 @@ const getOne = (data) => {
   store.data = data
   console.log(data)
   console.log(data.place.name)
-  $('.update-id').val(data.place.id)
+  // $('.update-id').val(data.place.id)
   $('.update-name').val(data.place.name)
   $('.update-category').val(data.place.category)
   $('.update-address').val(data.place.address)
