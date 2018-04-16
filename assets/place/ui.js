@@ -22,7 +22,8 @@ const onCreateSuccess = function (data) {
   $('#create-form-feedback').text('saved!')
   $('form').trigger('reset')
   $('#content').empty()
-  $('#show-all').prop('disabled', false)
+  // $('#show-all').prop('disabled', false)
+  $('#content').prop('disabled', false)
 }
 
 const onCreateFailure = function () {
@@ -73,7 +74,7 @@ const onShowUpdateForm = () => {
 const getOne = (data) => {
   store.data = data
   console.log(data)
-  console.log(data.place.name)
+  console.log(data.place.category)
   // $('.update-id').val(data.place.id)
   $('.update-name').val(data.place.name)
   $('.update-category').val(data.place.category)

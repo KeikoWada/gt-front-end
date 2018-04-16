@@ -48,14 +48,14 @@ const signOutFailure = () => {
 
 const changePasswordSuccess = (data) => {
   $.toast({
-    text: 'Changed Password successfully',
+    // text: 'Changed Password successfully',
     showHideTransition: 'plain',
     allowToastClose: true,
-    heading: 'Success!',
+    heading: 'Updated Successfully!',
     icon: 'success',
     hideAfter: 3000,
     stack: 5,
-    position: 'top-left',
+    position: 'bottom-left',
     textAlign: 'left',
     loader: true,
     loaderBg: '#F09C40',

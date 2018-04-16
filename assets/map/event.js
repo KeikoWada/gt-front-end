@@ -32,16 +32,17 @@ const initialize = function () {
       addPoint(event.latLng)
     })
     // remove the Point when it's double clicked
-    function removePoint (marker) {
-      console.log('hi')
-      for (let i = 0; i < markers.length; i++) {
-        if (markers[i] === marker) {
-          markers.setMap(null)
-          markers.splice(i, 1)
-          route.splice(i, 1)
-        }
-      }
-    }
+    // function removePoint (marker) {
+    //   console.log('hi')
+    //   for (let i = 0; i < markers.length; i++) {
+    //     if (markers[i] === marker) {
+    //       markers.setMap(null)
+    //       markers.splice(i, 1)
+    //       route.splice(i, 1)
+    //     }
+    //   }
+    // }
+
     // const maps = function (latling) {
     //   console.log(latling)
     // const input = document.getElementById('address').value
@@ -96,7 +97,7 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
       route.push([x, y])
       markers.push(marker)
       google.maps.event.addListener(marker, 'click', function (event) {
-        removePoint(marker)
+        // removePoint(marker)
         // maps(x, y)
         geocodeLatLng(geocoder, map, infowindow, x, y)
       })
@@ -131,20 +132,21 @@ const maps = function (data) {
 //   })
 // }
 
-// delete markers
+// *********************Create point and remove the marker*************
+function setMapOnAll (map) {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(map)
+  }
+}
+
 // Deletes all markers in the array by removing references to them.
-// function setMapOnAll (map) {
-//   for (let i = 0; i < markers.length; i++) {
-//     markers[i].setMap(map)
-//     deleteMarkers()
-//   }
-// }
-// function deleteMarkers () {
-//   setMapOnAll(null)
-//   markers = []
-// }
+function deleteMarkers () {
+  setMapOnAll(null)
+  markers = []
+}
+// ********************************************************************
 module.exports = {
   initialize,
-  maps
-  // setMapOnAll
+  maps,
+  deleteMarkers
 }

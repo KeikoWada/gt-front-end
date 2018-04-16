@@ -71,7 +71,12 @@ const onClear = (event) => {
   $('#delete-feedback').text('')
   $('#left-content').empty()
   $('#clear-button').addClass('hidden')
-  // mapEvent.setMapOnAll()
+  mapEvent.deleteMarkers()
+}
+
+const onClearMarker = (event) => {
+  console.log('clear?')
+  mapEvent.deleteMarkers()
 }
 
 const onDeletePlace = (event) => {
@@ -92,6 +97,7 @@ const addHandlers = () => {
   $('#left-content').on('click', '.place-update', onShowUpdate)
   $('#left-content').on('submit', '#update-form', onUpdate)
   $('#clear-button').on('click', onClear)
+  $('#clear-marker').on('click', onClearMarker)
   $('#left-content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
 }
