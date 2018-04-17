@@ -1,5 +1,7 @@
 'use strict'
 
+const mapUi = require('../map/ui')
+
 const GoogleMapsLoader = require('google-maps')
 const ui = require('./ui')
 
@@ -153,9 +155,9 @@ const maps = function (data) {
   }, function (err, response) {
     if (!err) {
       console.log(response.json.results)
-      // ui.onShowMap(response.json.results)
-      ui.onShowMap(data)
-      ui.onShowMap(data)
+      console.log('json is ', response.json.results)
+      mapUi.onMapAddress(data)
+      // ui.onShowMap(data)
     }
   })
 }

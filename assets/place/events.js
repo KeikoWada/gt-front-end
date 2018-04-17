@@ -11,6 +11,12 @@ const onShowCreate = function (event) {
   ui.onShowCreateForm()
 }
 
+// const onPopulateAddress = function (event) {
+//   // event.preventDefault()
+//
+//   ui.onAddressFromMap(event)
+// }
+
 const onCreatePlace = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -52,7 +58,6 @@ const onOneLoad = (event) => {
   const id = event.target.dataset.id
   api.showOne(id)
     .then(ui.getOne)
-    // .then(() => onShowUpdate(event))
 }
 
 const onUpdate = (event) => {
@@ -103,5 +108,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  // onPopulateAddress
 }

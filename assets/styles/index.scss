@@ -5,17 +5,8 @@ body {
     padding-top: 70px;
 }
 
-#left-content {
-  padding-top: 50px;
-}
-
 .first-page-forms {
   padding-top: 30px;
-}
-
- #map {
-  height: 70vh;
-  width: 100vh;
 }
 
 html, body {
@@ -23,12 +14,36 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+h1 {
+  padding-top: 40px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+#left-content {
+  padding-top: 50px;
+}
+
+#map {
+ height: 70vh;
+ width: 100vh;
+}
+
 #floating-panel {
   position: absolute;
   top: 10px;
   left: 25%;
 }
 
-h1 {
-  padding-top: 40px;
+#first-page {
+  height: 100%;
+  width: 100%;
+  background-image: url("https://i.imgur.com/vAg4qMO.jpg")
+}
+
+#second-page {
+  height: 100%;
+  width: 100%;
+  background-image: url("https://i.imgur.com/2q0euGQ.jpg")
 }
