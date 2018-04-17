@@ -25,6 +25,7 @@ const onMapAddress = (data) => {
   $('.create-name').val('')
   $('.create-category').val('')
   $('.create-address').val(data)
+  $('.update-address').val(data)
   $('.create-description').val('')
 }
 
