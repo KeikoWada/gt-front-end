@@ -60,10 +60,9 @@ const initialize = function () {
     // remove the Point when it's double clicked
 
     function removePoint (marker) {
-      console.log('hi')
       for (let i = 0; i < markers.length; i++) {
         if (markers[i] > marker) {
-          // markers.setMap(null)
+          markers.setMap(null)
           markers[i].setMap(map)
           markers.splice(i, 1)
           route.splice(i, 1)
@@ -83,7 +82,7 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
       geocoder.geocode({'location': latlng}, function (results, status) {
         if (status === 'OK') {
           if (results[0]) {
-            map.setZoom(15)
+            map.setZoom(14)
             const marker = new google.maps.Marker({
               position: latlng,
               map: map
@@ -102,19 +101,18 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
   })
 }
 
-
-    // const maps = function (latling) {
-    //   console.log(latling)
-    // const input = document.getElementById('address').value
-    //   googleMapsClient.geocode({
-    //     Address: '27 branch st. quincy, ma'
-    //   }, function (err, response) {
-    //     if (!err) {
-    //       console.log(response.json.results)
-    //       ui.onShowMap(response.json.results)
-    //     }
-    //   })
-    // }
+// const maps = function (latling) {
+//   console.log(latling)
+// const input = document.getElementById('address').value
+//   googleMapsClient.geocode({
+//     Address: '27 branch st. quincy, ma'
+//   }, function (err, response) {
+//     if (!err) {
+//       console.log(response.json.results)
+//       ui.onShowMap(response.json.results)
+//     }
+//   })
+// }
 
 //     // ************************************************
 //     // get JSON objct from googleMap api
