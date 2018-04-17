@@ -47,12 +47,13 @@ const initialize = function () {
       const y = latlng.lng()
       route.push([x, y])
       markers.push(marker)
-      // geocodeLatLng(geocoder, map, infowindow, x, y)
+      geocodeLatLng(geocoder, map, infowindow, x, y)
       google.maps.event.addListener(marker, 'click', function (event) {
         removePoint(marker)
         maps(x, y)
         console.log('marker is ', markers)
-        geocodeLatLng(geocoder, map, infowindow, x, y)
+        setMapOnAll(map)
+        // geocodeLatLng(geocoder, map, infowindow, x, y)
       })
     }
 
