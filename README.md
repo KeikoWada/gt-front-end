@@ -1,8 +1,8 @@
 ## link
-Back-end repo: https://github.com/KeikoWada/gt-back-end
-Heroku deployed site: https://great-time.herokuapp.com/
-Front-end deployed site: http://www.keikowada.com/gt-front-end/
-Wireframes: https://i.imgur.com/KkRfvqv.jpg
+- Back-end repo: https://github.com/KeikoWada/gt-back-end
+- Heroku deployed site: https://great-time.herokuapp.com/
+- Front-end deployed site: http://www.keikowada.com/gt-front-end/
+- Wireframes: https://i.imgur.com/KkRfvqv.jpg
 
 ## user stories
 if I am a user
