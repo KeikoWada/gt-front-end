@@ -1,7 +1,8 @@
 'use strict'
 
 const store = require('../scripts/store')
-// const placeEvents = require('./events')
+require('jquery-toast-plugin')
+
 const showPlacesTemplate = require('../scripts/templates/all-places.handlebars')
 const showPlaceTemplate = require('../scripts/templates/place.handlebars')
 const showCreateTemplate = require('../scripts/templates/create-form.handlebars')
@@ -11,7 +12,6 @@ const onShowCreateForm = () => {
   const showCreateHtml = showCreateTemplate()
   $('#clear-button').removeClass('hidden')
   $('#content').empty()
-  $('#delete-feedback').text('')
   $('#content').append(showCreateHtml)
 }
 
@@ -22,15 +22,44 @@ const onCreateSuccess = function (data) {
   $('#create-form-feedback').text('saved!')
   $('form').trigger('reset')
   $('#content').empty()
-  // $('#show-all').prop('disabled', false)
   $('#content').prop('disabled', false)
+  createFeedback()
+}
+
+const createFeedback = () => {
+  $.toast({
+    heading: 'Add Your Favorite Place Successfully!',
+    icon: 'success',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
 }
 
 const onCreateFailure = function () {
   $('#create-form-feedback').addClass('text-danger')
   $('#create-form-feedback').removeClass('text-success')
   $('#create-form-feedback').text('not saved yet')
+  createFailureFeedback()
   $('form').trigger('reset')
+}
+
+const createFailureFeedback = () => {
+  $.toast({
+    heading: 'Error Adding Favorite Place',
+    icon: 'error',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
 }
 
 const onShowAllSuccess = function (data) {
@@ -94,20 +123,6 @@ const getOne = (data) => {
   $('.update-description').val(data.place.description)
 }
 
-// const onUpdateSuccess = function (data) {
-//   store.data = data
-//   const showlistsHtml = showUpdateTemplate({ place: data.place })
-//   $('#content').append(showlistsHtml)
-//   $('input').val('')
-//
-//   // $('#updatesuccessModal').modal('show')
-//   // $('#updatemyModal').modal('hide')
-//   // $('#thisupdatemyModal').modal('hide')
-//   // $('#your-modal-id').modal('hide')
-//   // $('body').removeClass('modal-open')
-//   // $('.modal-backdrop').remove()
-// }
-
 const onUpdateSuccess = function () {
   $('#update-form-feedback').removeClass('text-danger')
   $('#update-form-feedback').addClass('text-success')
@@ -115,13 +130,41 @@ const onUpdateSuccess = function () {
   $('form').trigger('reset')
   $('#content').empty()
   $('#show-all').prop('disabled', false)
+  updateSuccessFeedback()
 }
 
+const updateSuccessFeedback = () => {
+  $.toast({
+    heading: 'Updated Successfully!',
+    icon: 'success',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true
+  })
+}
 const onUpdateFailure = function () {
   $('#update-form-feedback').addClass('text-danger')
   $('#update-form-feedback').removeClass('text-success')
   $('#update-form-feedback').text('Udpate was unsuccessful! Try again!')
   $('form').trigger('reset')
+  updateFailureFeedback()
+}
+
+const updateFailureFeedback = () => {
+  $.toast({
+    heading: 'Error Adding Favorite Place',
+    icon: 'error',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
 }
 
 const onDeleteSuccess = () => {
@@ -129,6 +172,21 @@ const onDeleteSuccess = () => {
   $('#delete-feedback').addClass('text-success')
   $('#content').empty()
   $('#delete-feedback').text('Deleted successfully!')
+  deleteSuccessFeedback()
+}
+
+const deleteSuccessFeedback = () => {
+  $.toast({
+    heading: 'Deleted Successfully!',
+    icon: 'success',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
 }
 
 const onDeleteFailure = () => {
@@ -136,21 +194,41 @@ const onDeleteFailure = () => {
   $('#delete-feedback').removeClass('text-success')
   $('#content').empty()
   $('#delete-feedback').text('Delete was unsuccessful!')
+  deleteFailureFeedback()
+}
+
+const deleteFailureFeedback = () => {
+  $.toast({
+    heading: 'Error deleting',
+    icon: 'error',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
 }
 
 module.exports = {
   onShowCreateForm,
   onCreateSuccess,
   onCreateFailure,
+  createFailureFeedback,
   onShowAllSuccess,
   onShowAllFailure,
   onShowOneSuccess,
   onShowOneFailure,
   onShowUpdateForm,
-  // onAddressFromMap,
+  createFeedback,
   getOne,
   onUpdateSuccess,
+  updateSuccessFeedback,
   onUpdateFailure,
+  updateFailureFeedback,
   onDeleteSuccess,
-  onDeleteFailure
+  deleteSuccessFeedback,
+  onDeleteFailure,
+  deleteFailureFeedback
 }

@@ -11,18 +11,13 @@ const onShowCreate = function (event) {
   ui.onShowCreateForm()
 }
 
-// const onPopulateAddress = function (event) {
-//   // event.preventDefault()
-//
-//   ui.onAddressFromMap(event)
-// }
-
 const onCreatePlace = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.data = data
   api.createPlace(data)
     .then(ui.onCreateSuccess)
+    // .then(ui.createFeedback)
     .then(onShowAll)
     .catch(ui.onCreateFailure)
 }

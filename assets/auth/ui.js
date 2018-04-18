@@ -1,6 +1,7 @@
 'use strict'
 
 require('jquery-toast-plugin')
+
 const store = require('../scripts/store')
 
 const signUpSuccess = () => {
@@ -51,17 +52,15 @@ const changePasswordSuccess = (data) => {
     position: 'top-right',
     textAlign: 'left',
     loader: true,
-    loaderBg: '#9EC600',
-    // bgColor: 'green',
-    textColor: 'green'
+    loaderBg: '#9EC600'
   })
   $('form').trigger('reset')
 }
 
 const changePasswordFailure = () => {
   $.toast({
-    text: 'Error Changing Password',
-    // heading: 'Error!',
+    // text: 'Error',
+    heading: 'Error Changing Password!',
     icon: 'error',
     showHideTransition: 'fade',
     allowToastClose: true,
@@ -69,12 +68,8 @@ const changePasswordFailure = () => {
     stack: 5,
     textAlign: 'left',
     loader: true,
-    position: 'top-left',
-    textColor: 'red'
+    position: 'top-left'
   })
-  // $('#change-password-feedback').addClass('text-danger')
-  // $('#change-password-feedback').removeClass('text-success')
-  // $('#change-password-feedback').text('Try again!')
   $('form').trigger('reset')
 }
 
