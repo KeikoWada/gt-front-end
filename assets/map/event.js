@@ -3,7 +3,7 @@
 const mapUi = require('../map/ui')
 
 const GoogleMapsLoader = require('google-maps')
-const ui = require('./ui')
+// const ui = require('./ui')
 
 GoogleMapsLoader.KEY = 'AIzaSyDYNUvtBwJqZK-viWIsQx5hlEMr-yUGJ2g'
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places']
@@ -17,7 +17,6 @@ let route = []
 
 // initialize the map point to boston
 const initialize = function () {
-  console.log('test')
   $('#map').show()
   GoogleMapsLoader.load(function (google) {
     markers = []
@@ -36,7 +35,7 @@ const initialize = function () {
 
     // *********** add marker on map & invoke the geocodeLatLng function
     function addPoint (latlng) {
-      console.log(latlng)
+      // console.log(latlng)
       const marker = new google.maps.Marker({
         position: latlng,
         animation: google.maps.Animation.DROP,
@@ -48,13 +47,12 @@ const initialize = function () {
       route.push([x, y])
       markers.push(marker)
       // setMapOnAll(map)
-      // geocodeLatLng(geocoder, map, infowindow, x, y)
+      geocodeLatLng(geocoder, map, infowindow, x, y)
       google.maps.event.addListener(marker, 'click', function (event) {
         removePoint(marker)
         maps(x, y)
-        setMapOnAll(map)
-        console.log('marker is ', markers)
-        geocodeLatLng(geocoder, map, infowindow, x, y)
+        // setMapOnAll(map)
+        // geocodeLatLng(geocoder, map, infowindow, x, y)
       })
     }
 
@@ -104,19 +102,6 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
   })
 }
 
-// const maps = function (latling) {
-//   console.log(latling)
-// const input = document.getElementById('address').value
-//   googleMapsClient.geocode({
-//     Address: '27 branch st. quincy, ma'
-//   }, function (err, response) {
-//     if (!err) {
-//       console.log(response.json.results)
-//       ui.onShowMap(response.json.results)
-//     }
-//   })
-// }
-
 // ****************************************************************************
 // rendering the json object from google api
 const maps = function (data) {
@@ -132,19 +117,6 @@ const maps = function (data) {
     }
   })
 }
-
-// const maps = function (address) {
-//   console.log(address)
-//   // const input = document.getElementById('address').value
-//   googleMapsClient.geocode({
-//     Address: address
-//   }, function (err, response) {
-//     if (!err) {
-//       console.log(response.json.results)
-//       ui.onShowMap(response.json.results)
-//     }
-//   })
-// }
 
 // *********************Create point and remove the marker*************
 const thisMarkers = []

@@ -84,6 +84,7 @@ const onClear = (event) => {
 const onClearMarker = (event) => {
   console.log('clear?')
   mapEvent.deleteMarkers()
+  mapEvent.initialize()
 }
 
 const onDeletePlace = (event) => {

@@ -66,6 +66,49 @@
           </div><!-- /.container-fluid -->
         </nav>
       </header>
+
+      <!-- first page feedback-modals -->
+      <!-- sign up success Modal -->
+        <div class="modal fade success-feedback" id="signup-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                Sign up successfully
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of sign up success modal -->
+        <div class="modal fade failure-feedback" id="signup-failure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                Oooops, something is wrong. Please check input.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- end of first page feedback-modals -->
+      <!-- end of sign up success modal -->
+      <div class="modal fade failure-feedback" id="signin-failure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              Oooops, Have you sign up yet?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- end of first page feedback-modals -->
       <!-- First Page -->
       <section id="first-page">
         <div class="container">
@@ -108,7 +151,8 @@
             <div class="col-xs-6 column-right">
               <div id="map"></div>
             </div>
-      </section>
       <!-- End Second Page -->
+          </div>
+        </section>
     </body>
 </html>

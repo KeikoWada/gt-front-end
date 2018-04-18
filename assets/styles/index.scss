@@ -17,6 +17,15 @@ h1 {
   font-family: 'Noto Sans', sans-serif;
 }
 
+#show-sign-up {
+  color: #0df1ff;
+  font-size: 15px;
+}
+
+#show-sign-in {
+  color: #0df1ff;
+  font-size: 15px;
+}
 
 #content {
   padding-top: 50px;
@@ -43,8 +52,16 @@ h1 {
   width: 100%;
   height: 100%;
   overflow: scroll;
-  height: 800px;
+  height: 890px;
   background-image: url("https://i.imgur.com/2q0euGQ.jpg")
+}
+
+.success-feedback {
+  color: green;
+}
+
+.failure-feedback {
+  color: red;
 }
 
 .first-page-forms {

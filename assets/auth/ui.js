@@ -4,16 +4,12 @@ require('jquery-toast-plugin')
 const store = require('../scripts/store')
 
 const signUpSuccess = () => {
-  $('#sign-up-feedback').removeClass('text-danger')
-  $('#sign-up-feedback').addClass('text-success')
-  $('#sign-up-feedback').text('You have successfully sign up!')
+  $('#signup-success').modal('show')
   $('form').trigger('reset')
 }
 
 const signUpFailure = () => {
-  $('#sign-up-feedback').removeClass('text-success')
-  $('#sign-up-feedback').addClass('text-danger')
-  $('#sign-up-feedback').text('Life is tough! Try again!')
+  $('#signup-failure').modal('show')
   $('form').trigger('reset')
 }
 
@@ -25,9 +21,7 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = () => {
-  $('#sign-in-feedback').removeClass('text-success')
-  $('#sign-in-feedback').addClass('text-danger')
-  $('#sign-in-feedback').text('Did you sign up yet?!')
+  $('#signin-failure').modal('show')
   $('form').trigger('reset')
 }
 
@@ -48,7 +42,6 @@ const signOutFailure = () => {
 
 const changePasswordSuccess = (data) => {
   $.toast({
-    text: 'Success!',
     heading: 'Password changed successfully!',
     icon: 'success',
     showHideTransition: 'plain',
@@ -58,17 +51,17 @@ const changePasswordSuccess = (data) => {
     position: 'top-right',
     textAlign: 'left',
     loader: true,
-    loaderBg: '#9EC600'
+    loaderBg: '#9EC600',
+    // bgColor: 'green',
+    textColor: 'green'
   })
-  // $('#change-password-feedback').removeClass('text-danger')
-  // $('#change-password-feedback').addClass('text-success')
   $('form').trigger('reset')
 }
 
 const changePasswordFailure = () => {
   $.toast({
     text: 'Error Changing Password',
-    heading: 'Error!',
+    // heading: 'Error!',
     icon: 'error',
     showHideTransition: 'fade',
     allowToastClose: true,
@@ -76,7 +69,8 @@ const changePasswordFailure = () => {
     stack: 5,
     textAlign: 'left',
     loader: true,
-    position: 'top-left'
+    position: 'top-left',
+    textColor: 'red'
   })
   // $('#change-password-feedback').addClass('text-danger')
   // $('#change-password-feedback').removeClass('text-success')
