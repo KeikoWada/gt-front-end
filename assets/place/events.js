@@ -77,7 +77,7 @@ const onClear = (event) => {
 }
 
 const onClearMarker = (event) => {
-  console.log('clear?')
+  $('#clear-marker').addClass('hidden')
   mapEvent.deleteMarkers()
   mapEvent.initialize()
 }

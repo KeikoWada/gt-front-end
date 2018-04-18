@@ -3,7 +3,6 @@
 const mapUi = require('../map/ui')
 
 const GoogleMapsLoader = require('google-maps')
-// const ui = require('./ui')
 
 GoogleMapsLoader.KEY = 'AIzaSyDYNUvtBwJqZK-viWIsQx5hlEMr-yUGJ2g'
 GoogleMapsLoader.LIBRARIES = ['geometry', 'places']
@@ -31,6 +30,7 @@ const initialize = function () {
     // listner function to add Point
     google.maps.event.addListener(map, 'click', function (event) {
       addPoint(event.latLng)
+      $('#clear-marker').removeClass('hidden')
     })
 
     // *********** add marker on map & invoke the geocodeLatLng function
