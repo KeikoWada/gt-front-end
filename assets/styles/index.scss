@@ -18,17 +18,12 @@ h1 {
 }
 
 
-#left-content {
+#content {
   padding-top: 50px;
 }
 
-.column-left {
-  overflow: scroll;
-  height: 400px;
-}
-
 #map {
- height: 70vh;
+ height: 60vh;
  width: 100%;
 }
 
@@ -55,7 +50,7 @@ h1 {
 }
 
 .text-center {
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 
 .instruction {
@@ -65,9 +60,29 @@ h1 {
 }
 
 .intro {
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   height:10vh;
   text-align: left;
   font-size: 20px;
   font-family: 'Noto Sans', sans-serif;
+}
+
+.column-left {
+  padding-left: 50px;
+}
+
+.left {
+  overflow: scroll;
+  height: 500px;
+  padding-left: 50px;
+}
+
+.column-right {
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+.panel-body {
+  background-color: white;
+  opacity: 0.8;
 }

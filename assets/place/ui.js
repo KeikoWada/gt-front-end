@@ -10,9 +10,9 @@ const showUpdateTemplate = require('../scripts/templates/update-form.handlebars'
 const onShowCreateForm = () => {
   const showCreateHtml = showCreateTemplate()
   $('#clear-button').removeClass('hidden')
-  $('#left-content').empty()
+  $('#content').empty()
   $('#delete-feedback').text('')
-  $('#left-content').append(showCreateHtml)
+  $('#content').append(showCreateHtml)
 }
 
 const onCreateSuccess = function (data) {
@@ -54,9 +54,9 @@ const onShowAllFailure = function () {
 
 const onShowOneSuccess = function (data) {
   const showPlaceHtml = showPlaceTemplate({ place: data.place })
-  $('#left-content').empty()
+  $('#content').empty()
   $('#delete-feedback').text('')
-  $('#left-content').append(showPlaceHtml)
+  $('#content').append(showPlaceHtml)
 }
 
 const onShowOneFailure = function () {
@@ -66,9 +66,9 @@ const onShowOneFailure = function () {
 }
 
 const onShowUpdateForm = () => {
-  $('#left-content').empty()
+  $('#content').empty()
   const showUpdateHtml = showUpdateTemplate()
-  $('#left-content').append(showUpdateHtml)
+  $('#content').append(showUpdateHtml)
 }
 
 
@@ -127,14 +127,14 @@ const onUpdateFailure = function () {
 const onDeleteSuccess = () => {
   $('#delete-feedback').removeClass('text-danger')
   $('#delete-feedback').addClass('text-success')
-  $('#left-content').empty()
+  $('#content').empty()
   $('#delete-feedback').text('Deleted successfully!')
 }
 
 const onDeleteFailure = () => {
   $('#delete-feedback').addClass('text-danger')
   $('#delete-feedback').removeClass('text-success')
-  $('#left-content').empty()
+  $('#content').empty()
   $('#delete-feedback').text('Delete was unsuccessful!')
 }
 

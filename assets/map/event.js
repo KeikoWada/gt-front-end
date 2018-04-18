@@ -47,13 +47,14 @@ const initialize = function () {
       const y = latlng.lng()
       route.push([x, y])
       markers.push(marker)
-      geocodeLatLng(geocoder, map, infowindow, x, y)
+      // setMapOnAll(map)
+      // geocodeLatLng(geocoder, map, infowindow, x, y)
       google.maps.event.addListener(marker, 'click', function (event) {
         removePoint(marker)
         maps(x, y)
-        console.log('marker is ', markers)
         setMapOnAll(map)
-        // geocodeLatLng(geocoder, map, infowindow, x, y)
+        console.log('marker is ', markers)
+        geocodeLatLng(geocoder, map, infowindow, x, y)
       })
     }
 
@@ -64,6 +65,7 @@ const initialize = function () {
       for (let i = 0; i < markers.length; i++) {
         if (markers[i] > marker) {
           markers.setMap(null)
+          console.log('here is removePOint')
           markers[i].setMap(map)
           markers.splice(i, 1)
           route.splice(i, 1)
@@ -115,36 +117,6 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
 //   })
 // }
 
-//     // ************************************************
-//     // get JSON objct from googleMap api
-// const geocoder = new google.maps.Geocoder
-// const infowindow = new google.maps.InfoWindow
-// const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
-//       // const input = document.getElementById('latlng').value
-//       // const latlngStr = input.split(',', 2)
-//       console.log(x, y)
-//       const latlng = {lat: x, lng: y}
-//       geocoder.geocode({'location': latlng}, function (results, status) {
-//         if (status === 'OK') {
-//           if (results[0]) {
-//             map.setZoom(15)
-//             const marker = new google.maps.Marker({
-//               position: latlng,
-//               map: map
-//             })
-//             infowindow.setContent(results[0].formatted_address)
-//             maps(results[0].formatted_address)
-//             infowindow.open(map, marker)
-//           } else {
-//             window.alert('No results found')
-//           }
-//         } else {
-//           window.alert('Geocoder failed due to: ' + status)
-//         }
-//       })
-//     }
-//   })
-// }
 // ****************************************************************************
 // rendering the json object from google api
 const maps = function (data) {
@@ -175,16 +147,20 @@ const maps = function (data) {
 // }
 
 // *********************Create point and remove the marker*************
+const thisMarkers = []
 function setMapOnAll (map) {
-  for (let i = 0; i < markers.length; i++) {
-    markers[i].setMap(map)
+  for (let z = 0; z < thisMarkers.length; z++) {
+    thisMarkers[z].setMap(map)
+    thisMarkers.push(map)
+    console.log('map is', map)
   }
 }
 
 // Deletes all markers in the array by removing references to them.
 function deleteMarkers () {
   setMapOnAll(null)
-  markers = []
+  console.log(thisMarkers)
+  thisMarkers.length = 0
 }
 // ********************************************************************
 module.exports = {

@@ -1,6 +1,6 @@
 'use strict'
 
-const jqueryToastPlugin = require('jquery-toast-plugin')
+require('jquery-toast-plugin')
 const store = require('../scripts/store')
 
 const signUpSuccess = () => {
@@ -35,7 +35,7 @@ const signOutSuccess = () => {
   $('#first-page, #clear-button').removeClass('hidden')
   $('#second-page, .place-header').addClass('hidden')
   $('#content').empty()
-  $('#left-content').empty()
+  $('#content').empty()
   $('#delete-feedback').empty()
   $('#sign-in-feedback').text('')
   $('#show-all').prop('disabled', false)
@@ -48,20 +48,18 @@ const signOutFailure = () => {
 
 const changePasswordSuccess = (data) => {
   $.toast({
-    // text: 'Changed Password successfully',
-    showHideTransition: 'plain',
-    allowToastClose: true,
-    heading: 'Updated Successfully!',
-    icon: 'success',
-    hideAfter: 3000,
-    stack: 5,
-    position: 'bottom-left',
-    textAlign: 'left',
-    loader: true,
-    loaderBg: '#F09C40',
-    bgColor: 'green',
-    textColor: '#eee'
-  })
+     text: 'Don’t forget it now!',
+     heading: 'Password changed successfully!',
+     icon: 'success',
+     showHideTransition: 'plain',
+     allowToastClose: true,
+     hideAfter: 3000,
+     stack: 5,
+     position: 'top-right',
+     textAlign: 'left',
+     loader: true,
+     loaderBg: '#9EC600'
+   })
   // $('#change-password-feedback').removeClass('text-danger')
   // $('#change-password-feedback').addClass('text-success')
   $('form').trigger('reset')

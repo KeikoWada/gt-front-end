@@ -1,4 +1,4 @@
-  <div class="panel panel-default">
+  <!-- <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title" data-id={{place.id}}>{{place.name}}</h3>
     </div>
@@ -17,14 +17,42 @@
           Name: {{place.name}}
         {{else}}
           Nothing here yet.
-        {{/if}}
-      </div>
-      <button class="place-delete btn btn-warning entry-delete-button" class="entry-delete-button" data-id={{place.id}}>
-        Delete
-      </button>
-      <button type="button" class="place-update btn btn btn-success entry-update-button" data-id={{place.id}}>
-      Update
-      </button>
+        {{/if}} -->
 
-    </div>
-  </div>
+      {{#if place.name}}
+        <div class="panel panel-default hidden">
+          <h3 class="panel-title" data-id={{place.id}}>{{place.name}}</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+             <th><img src="https://i.imgur.com/6ki1bz7.jpg" height="50" width="50"></th>
+             <td><h6>Name</h6></td>
+             <td><h4><strong>{{place.name}}</strong></h4></td>
+           </tr>
+           <tr>
+            <th><img src="https://i.imgur.com/nYIW3ly.jpg" height="50" width="50"></th>
+            <td><h6>Category</h6></td>
+            <td><h4><strong>{{place.category}}</strong></h4></td>
+          </tr>
+          <tr>
+            <th><img src="https://i.imgur.com/zRiXnAB.png" height="80" width="80"></th>
+            <td><h6>Address</h6></td>
+            <td><h4><strong>{{place.address}}</strong></h4></td>
+           </tr>
+           <tr>
+            <th><img src="https://i.imgur.com/4cQNWQQ.png" height="50" width="50"></th>
+            <td><h6>Description</h6></td>
+            <td><h4><strong>{{place.description}}</strong></h4></td>
+          </tr>
+          </table>
+            <button class="place-delete btn btn-warning entry-delete-button" class="entry-delete-button" data-id={{place.id}}>
+              Delete
+            </button>
+            <button type="button" class="place-update btn btn btn-success entry-update-button" data-id={{place.id}}>
+            Update
+            </button>
+        </div>
+        {{else}}
+          Nothing here yet.
+        {{/if}}

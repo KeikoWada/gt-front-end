@@ -15,7 +15,7 @@ const store = require('../scripts/store')
 //   // console.log(data[0].formatted_address)
 //   // $('#address1').html(data[0].formatted_address)
 //   const showMapHtml = showMapHtmlTemplate({map: data})
-//   $('#left-content').html(showMapHtml)
+//   $('#content').html(showMapHtml)
 // }
 
 const onMapAddress = (data) => {

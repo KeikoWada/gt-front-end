@@ -63,6 +63,8 @@ const onOneLoad = (event) => {
 const onUpdate = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(id)
+  console.log(data)
   api.update(data, id)
     .then(ui.onUpdateSuccess)
     .then(onShowAll)
@@ -74,7 +76,7 @@ const onClear = (event) => {
   $('#show-all').prop('disabled', false)
   $('#content').empty()
   $('#delete-feedback').text('')
-  $('#left-content').empty()
+  $('#content').empty()
   $('#clear-button').addClass('hidden')
   mapEvent.deleteMarkers()
 }
@@ -95,19 +97,19 @@ const onDeletePlace = (event) => {
 }
 
 const addHandlers = () => {
-  $('#left-content').on('submit', '#create-form', onCreatePlace)
+  $('#content').on('submit', '#create-form', onCreatePlace)
   $('#show-all').on('click', onShowAll)
   $('#content').on('click', '#see-more-button', onShowOne)
-  // $('#left-content').on('click', '.place-update', onShowUpdate)
-  $('#left-content').on('click', '.place-update', onShowUpdate)
-  $('#left-content').on('submit', '#update-form', onUpdate)
+  // $('#content').on('click', '.place-update', onShowUpdate)
+  $('#content').on('click', '.place-update', onShowUpdate)
+  $('#content').on('submit', '#update-form', onUpdate)
   $('#clear-button').on('click', onClear)
   $('#clear-marker').on('click', onClearMarker)
-  $('#left-content').on('click', '.place-delete', onDeletePlace)
+  $('#content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
 }
 
 module.exports = {
-  addHandlers,
+  addHandlers
   // onPopulateAddress
 }
