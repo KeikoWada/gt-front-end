@@ -48,18 +48,18 @@ const signOutFailure = () => {
 
 const changePasswordSuccess = (data) => {
   $.toast({
-     text: 'Don’t forget it now!',
-     heading: 'Password changed successfully!',
-     icon: 'success',
-     showHideTransition: 'plain',
-     allowToastClose: true,
-     hideAfter: 3000,
-     stack: 5,
-     position: 'top-right',
-     textAlign: 'left',
-     loader: true,
-     loaderBg: '#9EC600'
-   })
+    text: 'Success!',
+    heading: 'Password changed successfully!',
+    icon: 'success',
+    showHideTransition: 'plain',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    position: 'top-right',
+    textAlign: 'left',
+    loader: true,
+    loaderBg: '#9EC600'
+  })
   // $('#change-password-feedback').removeClass('text-danger')
   // $('#change-password-feedback').addClass('text-success')
   $('form').trigger('reset')
