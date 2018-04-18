@@ -44,4 +44,4 @@ if I am a user
 broke down each problem to smaller issues and tackled them piece by piece
 
 ## An embedded screenshot of the app
-![alt text](screenshots/gt-app-screenshot.png)
+https://imgur.com/oVnvUIl
