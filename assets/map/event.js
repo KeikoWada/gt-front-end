@@ -63,7 +63,6 @@ const initialize = function () {
       for (let i = 0; i < markers.length; i++) {
         if (markers[i] > marker) {
           markers.setMap(null)
-          console.log('here is removePOint')
           markers[i].setMap(map)
           markers.splice(i, 1)
           route.splice(i, 1)
@@ -76,9 +75,7 @@ const initialize = function () {
 const geocoder = new google.maps.Geocoder
 const infowindow = new google.maps.InfoWindow
 const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
-      // const input = document.getElementById('latlng').value
-      // const latlngStr = input.split(',', 2)
-      console.log(x, y)
+      // console.log(x, y)
       const latlng = {lat: x, lng: y}
       geocoder.geocode({'location': latlng}, function (results, status) {
         if (status === 'OK') {
@@ -105,13 +102,13 @@ const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
 // ****************************************************************************
 // rendering the json object from google api
 const maps = function (data) {
-  console.log(data)
+  // console.log(data)
   googleMapsClient.geocode({
     address: 'data'
   }, function (err, response) {
     if (!err) {
-      console.log(response.json.results)
-      console.log('json is ', response.json.results)
+      // console.log(response.json.results)
+      // console.log('json is ', response.json.results)
       mapUi.onMapAddress(data)
       // ui.onShowMap(data)
     }
@@ -124,14 +121,14 @@ function setMapOnAll (map) {
   for (let z = 0; z < thisMarkers.length; z++) {
     thisMarkers[z].setMap(map)
     thisMarkers.push(map)
-    console.log('map is', map)
+    // console.log('map is', map)
   }
 }
 
 // Deletes all markers in the array by removing references to them.
 function deleteMarkers () {
   setMapOnAll(null)
-  console.log(thisMarkers)
+  // console.log(thisMarkers)
   thisMarkers.length = 0
 }
 // ********************************************************************

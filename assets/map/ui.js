@@ -20,8 +20,8 @@ const store = require('../scripts/store')
 
 const onMapAddress = (data) => {
   store.data = data
-  console.log(data)
-  console.log('data.map is', data[0].formatted_address)
+  // console.log(data)
+  // console.log('data.map is', data[0].formatted_address)
   $('.create-name').val('')
   $('.create-category').val('')
   $('.create-address').val(data)

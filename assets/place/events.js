@@ -15,7 +15,7 @@ const onCreatePlace = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.data = data
-  console.log(data)
+  // console.log(data)
   api.createPlace(data)
     .then(ui.onCreateSuccess)
     .then(onShowAll)
