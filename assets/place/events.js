@@ -37,6 +37,13 @@ const onShowOne = function (event) {
     .catch(ui.onShowOneFailure)
 }
 
+// const onShowMapModal = function (event) {
+//   event.preventDefault()
+//   console.log(this.x)
+//     .then(() => mapEvent.addPoint(this.x, this.y))
+//     .catch(mapEvent.onShowMapModalFailure)
+// }
+
 let id
 const onShowUpdate = (event) => {
   event.preventDefault()
@@ -103,6 +110,7 @@ const addHandlers = () => {
   $('#clear-marker').on('click', onClearMarker)
   $('#content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
+  // $('#show-marker').on('click', onShowMapModal)
 }
 
 module.exports = {

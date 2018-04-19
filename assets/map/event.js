@@ -13,7 +13,8 @@ const googleMapsClient = require('@google/maps').createClient({
 
 let markers = []
 let route = []
-
+let x
+let y
 // initialize the map point to boston
 const initialize = function () {
   $('#map').show()
@@ -71,10 +72,22 @@ const initialize = function () {
       }
     }
 
+
+// *****************************************
+// Map modal
+// const mapModal = new google.maps.Map(document.getElementById('map2'),
+//     mapOptions)
+//     $('#content').on('shown.bs.modal', function () {
+//       google.maps.event.trigger(map, 'resize')
+//       map.setCenter(new google.maps.LatLng(x, y))
+//     })
+//       markers.push(marker)
+//       addPoint(point)
+//     }
     // ************************************************
     // get JSON objct from googleMap api
 const geocoder = new google.maps.Geocoder
-const infowindow = new google.maps.InfoWindow
+// const infowindow = new google.maps.InfoWindow
 const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
       // const input = document.getElementById('latlng').value
       // const latlngStr = input.split(',', 2)
