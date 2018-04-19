@@ -67,13 +67,25 @@ const onShowAllSuccess = function (data) {
   store.data = data
   $('#clear-button').removeClass('hidden')
   if (data.places.length === 0) {
-    $('#content').removeClass('text-success')
-    $('#content').addClass('text-danger')
-    $('#content').text('no place yet')
+    showFailureFeedback()
   } else {
     const showPlacesHtml = showPlacesTemplate({ places: data.places })
     $('#content').append(showPlacesHtml)
   }
+}
+
+const showFailureFeedback = () => {
+  $.toast({
+    heading: 'Ooops There is no matches',
+    icon: 'error',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
 }
 
 const filter = function (response, event) {
@@ -81,8 +93,13 @@ const filter = function (response, event) {
 // $('#search-text').val()     this is the input field
   const data = response.places.filter((e, i, a) => e.category === $('#search-text').val())
   console.log('data is ', data)
-  const showPlacesHtml = showPlacesTemplate({ places: data })
-  $('#content').html(showPlacesHtml)
+  if (data.length === 0) {
+    showFailureFeedback()
+    $('#content').empty()
+  } else {
+    const showPlacesHtml = showPlacesTemplate({ places: data })
+    $('#content').html(showPlacesHtml)
+  }
 }
 
 const onShowAllFailure = function () {
@@ -124,9 +141,9 @@ const onShowUpdateForm = () => {
 
 const getOne = (data) => {
   store.data = data
-  console.log(data)
-  console.log(data.place.category)
-  // $('.update-id').val(data.place.id)
+  // console.log(data)
+  // console.log(data.place.category)
+
   $('.update-name').val(data.place.name)
   $('.update-category').val(data.place.category)
   $('.update-address').val(data.place.address)
@@ -134,9 +151,6 @@ const getOne = (data) => {
 }
 
 const onUpdateSuccess = function () {
-  $('#update-form-feedback').removeClass('text-danger')
-  $('#update-form-feedback').addClass('text-success')
-  $('#update-form-feedback').text('Bucket place udpated successfully!')
   $('form').trigger('reset')
   $('#content').empty()
   $('#show-all').prop('disabled', false)
@@ -156,9 +170,6 @@ const updateSuccessFeedback = () => {
   })
 }
 const onUpdateFailure = function () {
-  $('#update-form-feedback').addClass('text-danger')
-  $('#update-form-feedback').removeClass('text-success')
-  $('#update-form-feedback').text('Udpate was unsuccessful! Try again!')
   $('form').trigger('reset')
   updateFailureFeedback()
 }
@@ -178,10 +189,7 @@ const updateFailureFeedback = () => {
 }
 
 const onDeleteSuccess = () => {
-  $('#delete-feedback').removeClass('text-danger')
-  $('#delete-feedback').addClass('text-success')
   $('#content').empty()
-  $('#delete-feedback').text('Deleted successfully!')
   deleteSuccessFeedback()
 }
 
@@ -200,10 +208,7 @@ const deleteSuccessFeedback = () => {
 }
 
 const onDeleteFailure = () => {
-  $('#delete-feedback').addClass('text-danger')
-  $('#delete-feedback').removeClass('text-success')
   $('#content').empty()
-  $('#delete-feedback').text('Delete was unsuccessful!')
   deleteFailureFeedback()
 }
 

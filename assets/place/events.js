@@ -18,7 +18,6 @@ const onCreatePlace = function (event) {
   console.log(data)
   api.createPlace(data)
     .then(ui.onCreateSuccess)
-    // .then(ui.createFeedback)
     .then(onShowAll)
     .catch(ui.onCreateFailure)
 }
@@ -39,10 +38,7 @@ const onShowOne = function (event) {
 }
 
 const onSearchCategory = function (event) {
-  console.log('working')
   event.preventDefault()
-  // const data = getFormFields(event.target)
-  // store.data = data
 
   api.showAll(event)
     .then((response) => ui.filter(response, event))
@@ -69,8 +65,8 @@ const onOneLoad = (event) => {
 const onUpdate = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(id)
-  console.log(data)
+  // console.log(id)
+  // console.log(data)
   api.update(data, id)
     .then(ui.onUpdateSuccess)
     .then(onShowAll)
@@ -107,7 +103,6 @@ const addHandlers = () => {
   $('#content').on('submit', '#create-form', onCreatePlace)
   $('#show-all').on('click', onShowAll)
   $('#content').on('click', '#see-more-button', onShowOne)
-  // $('#content').on('click', '.place-update', onShowUpdate)
   $('#content').on('click', '.place-update', onShowUpdate)
   $('#content').on('submit', '#update-form', onUpdate)
   $('#clear-button').on('click', onClear)
@@ -119,5 +114,4 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers
-  // onPopulateAddress
 }
