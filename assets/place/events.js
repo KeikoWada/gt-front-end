@@ -15,6 +15,7 @@ const onCreatePlace = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.data = data
+  console.log(data)
   api.createPlace(data)
     .then(ui.onCreateSuccess)
     // .then(ui.createFeedback)
@@ -37,6 +38,16 @@ const onShowOne = function (event) {
     .catch(ui.onShowOneFailure)
 }
 
+const onSearchCategory = function (event) {
+  console.log('working')
+  event.preventDefault()
+  // const data = getFormFields(event.target)
+  // store.data = data
+
+  api.showAll(event)
+    .then((response) => ui.filter(response, event))
+}
+// **********************************************
 let id
 const onShowUpdate = (event) => {
   event.preventDefault()
@@ -103,6 +114,7 @@ const addHandlers = () => {
   $('#clear-marker').on('click', onClearMarker)
   $('#content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
+  $('#content').on('submit', '#search-by-category', onSearchCategory)
 }
 
 module.exports = {

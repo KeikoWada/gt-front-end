@@ -7,7 +7,8 @@ const showPlacesTemplate = require('../scripts/templates/all-places.handlebars')
 const showPlaceTemplate = require('../scripts/templates/place.handlebars')
 const showCreateTemplate = require('../scripts/templates/create-form.handlebars')
 const showUpdateTemplate = require('../scripts/templates/update-form.handlebars')
-
+// const getFormFields = require('../../lib/get-form-fields')
+// const api = require('./api')
 const onShowCreateForm = () => {
   const showCreateHtml = showCreateTemplate()
   $('#clear-button').removeClass('hidden')
@@ -73,6 +74,15 @@ const onShowAllSuccess = function (data) {
     const showPlacesHtml = showPlacesTemplate({ places: data.places })
     $('#content').append(showPlacesHtml)
   }
+}
+
+const filter = function (response, event) {
+  // response                  this is the array from db
+// $('#search-text').val()     this is the input field
+  const data = response.places.filter((e, i, a) => e.category === $('#search-text').val())
+  console.log('data is ', data)
+  const showPlacesHtml = showPlacesTemplate({ places: data })
+  $('#content').html(showPlacesHtml)
 }
 
 const onShowAllFailure = function () {
@@ -216,6 +226,7 @@ module.exports = {
   onCreateSuccess,
   onCreateFailure,
   createFailureFeedback,
+  filter,
   onShowAllSuccess,
   onShowAllFailure,
   onShowOneSuccess,
