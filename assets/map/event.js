@@ -55,7 +55,20 @@ const initialize = function () {
         // geocodeLatLng(geocoder, map, infowindow, x, y)
       })
     }
-
+// *********************************************************************
+// retrive the saved map
+// function retrivePoint (event) {
+//
+//       const map = new google.maps.Map(document.getElementById('map'), {
+//         zoom: 4,
+//         center: event.timeStamp
+//       })
+//
+//       const point = new google.maps.Marker({
+//         position: event.timeStamp,
+//         map: map
+//       })
+//     }
     // *************************************************************
     // remove the Point when it's double clicked
 
@@ -132,8 +145,42 @@ function deleteMarkers () {
   thisMarkers.length = 0
 }
 // ********************************************************************
+const initialize2 = function (event) {
+  const loc = {
+    lat: event[0][0],
+    lng: event[0][1]
+  }
+  GoogleMapsLoader.load(function (google) {
+    const mapOptions = {
+      zoom: 14,
+      center: loc,
+      mapTypeId: 'terrain'
+    }
+    const map = new google.maps.Map(document.getElementById('map2'),
+      mapOptions)
+    $('#content').on('#map', function () {
+      google.maps.event.trigger(map, 'resize')
+      map.setCenter(new google.maps.LatLng(loc))
+    })
+    let markers = []
+    for (let i = 0; i < route.length; i++) {
+      const point = new google.maps.LatLng(route[i][0], route[i][1])
+      addPoint(point)
+    }
+    function addPoint (latlng) {
+      const marker = new google.maps.Marker({
+        position: latlng,
+        animation: google.maps.Animation.DROP,
+        map: map
+      })
+      markers.push(marker)
+    }
+  })
+}
+
 module.exports = {
   initialize,
   maps,
-  deleteMarkers
+  deleteMarkers,
+  initialize2
 }

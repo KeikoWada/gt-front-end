@@ -150,22 +150,8 @@ const onShowUpdateForm = () => {
   $('#content').append(showUpdateHtml)
 }
 
-
-// const onAddressFromMap = (data) => {
-//   store.data = data
-//   console.log(data)
-//   console.log(data.place.address)
-//   // $('.update-id').val(data.place.id)
-//   $('.update-name').val('')
-//   $('.update-category').val('')
-//   $('.update-address').val(data.place.address)
-//   $('.update-description').val('')
-// }
-
 const getOne = (data) => {
   store.data = data
-  // console.log(data)
-  // console.log(data.place.category)
 
   $('.update-name').val(data.place.name)
   $('.update-category').val(data.place.category)

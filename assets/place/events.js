@@ -36,6 +36,14 @@ const onShowOne = function (event) {
     .then(ui.onShowOneSuccess)
     .catch(ui.onShowOneFailure)
 }
+// ********************************************
+const onShowMap = function (event) {
+  event.preventDefault()
+  // const id = event.target.dataset.id
+
+  ui.initialize2(event)
+  debugger
+}
 
 const onSearchCategory = function (event) {
   event.preventDefault()
@@ -109,6 +117,7 @@ const addHandlers = () => {
   $('#content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
   $('#search-by-category').on('submit', onSearchCategory)
+  $('#content').on('click', '.map-button', onShowMap)
 }
 
 module.exports = {
