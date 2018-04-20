@@ -64,13 +64,31 @@ const createFailureFeedback = () => {
 
 const onShowAllSuccess = function (data) {
   store.data = data
-  $('#clear-button').removeClass('hidden')
+
   if (data.places.length === 0) {
-    showFailureFeedback()
+    showAllFailureFeedback()
+    $('#clear-button').addClass('hidden')
+    $('#show-all').prop('disabled', false)
   } else {
     const showPlacesHtml = showPlacesTemplate({ places: data.places })
-    $('#content').append(showPlacesHtml)
+    $('#content').html(showPlacesHtml)
+    $('#clear-button').removeClass('hidden')
+    $('#show-all').prop('disabled', false)
   }
+}
+
+const showAllFailureFeedback = () => {
+  $.toast({
+    heading: 'Ooops There no list yet',
+    icon: 'error',
+    showHideTransition: 'fade',
+    allowToastClose: true,
+    hideAfter: 3000,
+    stack: 5,
+    textAlign: 'left',
+    loader: true,
+    position: 'top-left'
+  })
 }
 
 const showFailureFeedback = () => {
@@ -95,9 +113,15 @@ const filter = function (response, event) {
   if (data.length === 0) {
     showFailureFeedback()
     $('#content').empty()
+    $('#clear-button').addClass('hidden')
+    $('#show-all').prop('disabled', false)
+    $('form').trigger('reset')
   } else {
     const showPlacesHtml = showPlacesTemplate({ places: data })
     $('#content').html(showPlacesHtml)
+    $('#clear-button').removeClass('hidden')
+    $('form').trigger('reset')
+    $('#show-all').prop('disabled', false)
   }
 }
 

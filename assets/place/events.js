@@ -15,7 +15,7 @@ const onCreatePlace = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.data = data
-  // console.log(data)
+
   api.createPlace(data)
     .then(ui.onCreateSuccess)
     .then(onShowAll)
@@ -43,7 +43,7 @@ const onSearchCategory = function (event) {
   api.showAll(event)
     .then((response) => ui.filter(response, event))
 }
-// **********************************************
+
 let id
 const onShowUpdate = (event) => {
   event.preventDefault()
@@ -65,8 +65,7 @@ const onOneLoad = (event) => {
 const onUpdate = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // console.log(id)
-  // console.log(data)
+
   api.update(data, id)
     .then(ui.onUpdateSuccess)
     .then(onShowAll)
@@ -109,7 +108,7 @@ const addHandlers = () => {
   $('#clear-marker').on('click', onClearMarker)
   $('#content').on('click', '.place-delete', onDeletePlace)
   $('#show-create-form').on('click', onShowCreate)
-  $('#content').on('submit', '#search-by-category', onSearchCategory)
+  $('#search-by-category').on('submit', onSearchCategory)
 }
 
 module.exports = {
