@@ -14,7 +14,7 @@ function initMap() {
   const geocoder = new google.maps.Geocoder()
   const infowindow = new google.maps.InfoWindow()
 
-  document.getElementById('submit').addEventListener('click', function() {
+  document.getElementById('submit').addEventListener('click', function () {
     geocodeLatLng(geocoder, map, infowindow)
   })
 }

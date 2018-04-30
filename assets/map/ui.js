@@ -1,4 +1,5 @@
 'use strict'
+/* global $ */
 
 const store = require('../scripts/store')
 // const showMapHtmlTemplate = require('../scripts/templates/map.handlebars')

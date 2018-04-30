@@ -1,5 +1,5 @@
 'use strict'
-
+/* global $ */
 const config = require('../scripts/config')
 const store = require('../scripts/store')
 // const handlebars = require('../templates/place.handlebars')
@@ -51,7 +51,6 @@ const showOne = function (id) {
 }
 //
 const deletePlace = function (id) {
-
   return $.ajax({
     url: config.apiUrl + '/places/' + id,
     method: 'DELETE',

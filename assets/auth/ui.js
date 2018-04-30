@@ -1,4 +1,5 @@
 'use strict'
+/* global $ */
 
 require('jquery-toast-plugin')
 

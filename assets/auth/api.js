@@ -1,4 +1,5 @@
 'use strict'
+/* global $ */
 
 const config = require('../scripts/config')
 const store = require('../scripts/store')

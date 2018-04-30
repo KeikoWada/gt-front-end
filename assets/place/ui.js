@@ -1,4 +1,5 @@
 'use strict'
+/* global $ */
 
 const store = require('../scripts/store')
 require('jquery-toast-plugin')
@@ -149,7 +150,6 @@ const onShowUpdateForm = () => {
   const showUpdateHtml = showUpdateTemplate()
   $('#content').append(showUpdateHtml)
 }
-
 
 // const onAddressFromMap = (data) => {
 //   store.data = data
