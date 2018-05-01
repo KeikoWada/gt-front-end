@@ -45,4 +45,4 @@ broke down each problem to smaller issues and tackled them piece by piece
 
 ## An embedded screenshot of the app
 
-![alt text](../assets/styles/pictures/kraigslist.png)
+![alt text](https://i.imgur.com/oVnvUIl.png?1)
