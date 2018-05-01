@@ -16,7 +16,7 @@ if I am a user
 - I want to be able to select the address from google map
 - I want to be able to check the list I once created
 - I want to be able to edit (add/delete lists/ or edit dates)
-- I want to be able to search the lis
+- I want to be able to search the favorite place in my lists by category
 
 ## List of technologies used
 - Jquery
@@ -32,16 +32,15 @@ if I am a user
 
 ## List unsolved problems which would be fixed in future iterations.
 - Interact with AWS
-- Populate the markers of all places in his/her lists when user typed area/clicks the area on map
+- To populate all markers of the favorite places in the area where user searches by address (area)
 
 ## Planning and process
-- make user story
-- make lists of each required action according to the user stories.
-- Plan the time frame
-- writing the code
+I first made user story and time schedule.
+I planned to work on back-end, then front-end. After all of requirement was done, then I worked on  using third party APIs (googleMap APIs).
+The time schedule helped me to make prioritize things.
 
 ## problem-solving strategy
-broke down each problem to smaller issues and tackled them piece by piece
+My problem-solving strategy was to break larger problems into smaller ones that are easier to solve.
 
 ## An embedded screenshot of the app
 
