@@ -44,4 +44,5 @@ if I am a user
 broke down each problem to smaller issues and tackled them piece by piece
 
 ## An embedded screenshot of the app
-https://imgur.com/oVnvUIl
+
+![alt text](https://imgur.com/oVnvUIl)

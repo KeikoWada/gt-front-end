@@ -72,8 +72,8 @@ const initialize = function () {
 
     // ************************************************
     // get JSON objct from googleMap api
-    const geocoder = new google.maps.Geocoder
-    const infowindow = new google.maps.InfoWindow
+    const geocoder = new google.maps.Geocoder()
+    const infowindow = new google.maps.InfoWindow()
     const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
       // console.log(x, y)
       const latlng = {lat: x, lng: y}
