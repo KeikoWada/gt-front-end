@@ -45,6 +45,21 @@ The time schedule helped me prioritize things.
 ## problem-solving strategy
 My problem-solving strategy was to break larger problems into smaller ones that are easier to solve.
 
+## Installation instructions for any dependencies
+### npm:
+google-maps: Wrapper for asynchronously used Google Maps API in browser.
+This module does not change original google maps api in any way. It just provide easy way to load and use this API asynchronously
+
+@google/maps: The Node.js Client for Google Maps Services is a Node.js Client library for the following Google Maps APIs:
+
+- Directions API
+- Distance Matrix API
+- Elevation API
+- Geocoding API
+- Places API
+- Roads API
+- Time Zone API
+
 ## An embedded screenshot of the app
 
 ![alt text](https://i.imgur.com/oVnvUIl.png?1)

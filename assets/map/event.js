@@ -35,7 +35,6 @@ const initialize = function () {
 
     // *********** add marker on map & invoke the geocodeLatLng function
     function addPoint (latlng) {
-      // console.log(latlng)
       const marker = new google.maps.Marker({
         position: latlng,
         animation: google.maps.Animation.DROP,
@@ -46,28 +45,10 @@ const initialize = function () {
       const y = latlng.lng()
       route.push([x, y])
       markers.push(marker)
-      // setMapOnAll(map)
       geocodeLatLng(geocoder, map, infowindow, x, y)
       google.maps.event.addListener(marker, 'click', function (event) {
-        removePoint(marker)
         maps(x, y)
-        // setMapOnAll(map)
-        // geocodeLatLng(geocoder, map, infowindow, x, y)
       })
-    }
-
-    // *************************************************************
-    // remove the Point when it's double clicked
-
-    function removePoint (marker) {
-      for (let i = 0; i < markers.length; i++) {
-        if (markers[i] > marker) {
-          markers.setMap(null)
-          markers[i].setMap(map)
-          markers.splice(i, 1)
-          route.splice(i, 1)
-        }
-      }
     }
 
     // ************************************************
@@ -75,7 +56,6 @@ const initialize = function () {
     const geocoder = new google.maps.Geocoder()
     const infowindow = new google.maps.InfoWindow()
     const geocodeLatLng = function (geocoder, map, infowindow, x, y) {
-      // console.log(x, y)
       const latlng = {lat: x, lng: y}
       geocoder.geocode({'location': latlng}, function (results, status) {
         if (status === 'OK') {
@@ -102,15 +82,11 @@ const initialize = function () {
 // ****************************************************************************
 // rendering the json object from google api
 const maps = function (data) {
-  // console.log(data)
   googleMapsClient.geocode({
     address: 'data'
   }, function (err, response) {
     if (!err) {
-      // console.log(response.json.results)
-      // console.log('json is ', response.json.results)
       mapUi.onMapAddress(data)
-      // ui.onShowMap(data)
     }
   })
 }
@@ -121,14 +97,12 @@ function setMapOnAll (map) {
   for (let z = 0; z < thisMarkers.length; z++) {
     thisMarkers[z].setMap(map)
     thisMarkers.push(map)
-    // console.log('map is', map)
   }
 }
 
 // Deletes all markers in the array by removing references to them.
 function deleteMarkers () {
   setMapOnAll(null)
-  // console.log(thisMarkers)
   thisMarkers.length = 0
 }
 // ********************************************************************
