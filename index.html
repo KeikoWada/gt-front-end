@@ -30,6 +30,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
+                <li><a id="show-all" href="#">See All Places</a></li>
                 <li><a id="show-create-form" href="#">Add New Place</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password<span class="caret"></span></a>
@@ -130,7 +131,7 @@
             <div  id="intro" class="row page-blurb text-center">
               <div class="col-xs-12"><h1>Search your favorite place</h1></div>
                 <form id="search-by-category">
-                  <input id="search-text" type="text" placeholder="search by category" name="place[category]">
+                  <input id="search-text" type="text" placeholder="Category" name="place[category]">
                   <button id="search-button">Search</button>
                 </form>
                 <p>
@@ -145,7 +146,7 @@
           <!-- Content and Forms row -->
           <div class="row">
             <div class="col-xs-6 column-left">
-                <button type="submit" id="show-all" class="btn btn-default">See All</button>
+                <!-- <button type="submit" id="show-all" class="btn btn-default">See All</button> -->
                 <button type="button" id="clear-marker" class="btn btn-default hidden">Clear All Markers</button>
                 <button type="button" id="clear-button" class="btn btn-default">Clear</button>
                 <!-- end of show button -->
