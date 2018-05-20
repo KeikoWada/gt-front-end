@@ -2,7 +2,7 @@
 
 const authEvents = require('../auth/events')
 const placeEvents = require('../place/events')
-const mapEvents = require('../map/event')
+// const mapEvents = require('../map/event')
 // const test = require('../map/test')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -13,9 +13,8 @@ const mapEvents = require('../map/event')
 $(() => {
   authEvents.addHandlers()
   placeEvents.addHandlers()
-  $('#handlebars-button').on('click', function () {
-    mapEvents.maps()
-    // test.initMap()
-  })
-  $('#address').on('click', mapEvents.maps)
+  // $('#handlebars-button').on('click', function () {
+  //   mapEvents.maps()
+  // })
+  // $('#address').on('click', mapEvents.maps)
 })

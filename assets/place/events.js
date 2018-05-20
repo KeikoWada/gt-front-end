@@ -10,6 +10,7 @@ const mapEvent = require('../map/event')
 const onShowCreate = function (event) {
   event.preventDefault()
   ui.onShowCreateForm()
+  mapEvent.initialize()
 }
 
 const onCreatePlace = function (event) {
@@ -52,6 +53,7 @@ const onShowUpdate = (event) => {
   $('#update-form-id').val(id)
   ui.onShowUpdateForm()
   onOneLoad(event)
+  mapEvent.initialize()
 }
 
 const onOneLoad = (event) => {
