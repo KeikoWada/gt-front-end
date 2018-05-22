@@ -19,6 +19,7 @@ const showSignIn = function () {
   $('#first-page-forms').html('')
   showPageOne()
   $('#sign-up-form').hide()
+
 }
 
 const showPageOne = function () {

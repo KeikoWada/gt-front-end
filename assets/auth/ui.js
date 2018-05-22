@@ -1,6 +1,6 @@
 'use strict'
 /* global $ */
-
+const placeUi = require('../place/ui')
 require('jquery-toast-plugin')
 
 const store = require('../scripts/store')
@@ -20,6 +20,7 @@ const signInSuccess = (data) => {
   $('#first-page, #clear-button').addClass('hidden')
   $('#second-page, .place-header').removeClass('hidden')
   $('form').trigger('reset')
+  placeUi.onShowCreateForm()
 }
 
 const signInFailure = () => {
