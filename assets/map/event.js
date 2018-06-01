@@ -27,6 +27,7 @@ const initialize = function () {
     }
     const map = new google.maps.Map(document.getElementById('map'),
       mapOptions)
+
     // listner function to add Point
     google.maps.event.addListener(map, 'click', function (event) {
       addPoint(event.latLng)
